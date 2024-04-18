@@ -41,7 +41,8 @@ class _displayTarjetas extends State<displayTarjetas> {
       bottomRight: Radius.circular(30), 
     ),
       ),
-        actions: [IconButton(onPressed: (){
+        actions: [
+          IconButton(onPressed: (){
                 Navigator.push(
                      context,
                     MaterialPageRoute(
@@ -55,7 +56,20 @@ class _displayTarjetas extends State<displayTarjetas> {
                   color: Colors.yellow,                
                   highlightColor: Colors.black,
                   
-              )],
+              ),
+
+          IconButton(onPressed: (){
+                setState(() {
+                  
+                });
+              }, icon: const Icon(Icons.refresh),
+                  iconSize: 40,
+                  color: Colors.yellow,                
+                  highlightColor: Colors.black,
+                  
+              ),
+              
+              ],
          
         
       ),

@@ -61,7 +61,7 @@ bool showError = false;
     if (respuestacontrollerr.text.isNotEmpty ) {
       if(respuesta ==respuestacontrollerr.text){
             setState(() {
-                              showError = false; // Oculta el mensaje de error
+                              showError = false; 
                             });
           
           showDialog(
@@ -80,7 +80,7 @@ bool showError = false;
           );
         } else {
           setState(() {
-                              showError = true; // Oculta el mensaje de error
+                              showError = true; 
                             });
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("RESPUESTA NO COINCIDE")));
         }

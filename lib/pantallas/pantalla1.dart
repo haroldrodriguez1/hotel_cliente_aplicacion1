@@ -30,6 +30,7 @@ bool showError = false;
     fill();
     return  Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title:  Text("HOTEL CLEMENTINA",style: TextStyle(fontFamily:"Lato" ),),
         
@@ -252,6 +253,7 @@ bool showError = false;
                               onPressed: () async {
                                 nameappbar="Registro";
                                 namebutton="Insertar";
+                                onlyread = false;
                                 set = 0;
                                 Navigator.push(
                             context,

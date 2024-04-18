@@ -67,20 +67,19 @@ class MongoDatabase {
 
  
 static Future<List<Map<String, dynamic>>> getDataReservas() async {
-  // Obtener la fecha de mañana
+
   DateTime fechaManana = DateTime.now();
   
-  // Convertir la fecha de mañana al formato 'yyyy-MM-dd'
+ 
   String fechaMananaFormatted = "${fechaManana.year}-${fechaManana.month.toString().padLeft(2, '0')}-${fechaManana.day.toString().padLeft(2, '0')}";
 
-  // Crear el filtro de consulta
+  
   final query = {
     'fechainicio': {r'$gte': fechaMananaFormatted},
     'usuario': publicusername,
     'estado': "Pendiente",
   };
 
-  // Consultar la base de datos para obtener las reservas cuya fecha de inicio sea mañana o posterior
   final arrData = await userCollection.find(query).toList();
 
   return arrData;
@@ -88,20 +87,18 @@ static Future<List<Map<String, dynamic>>> getDataReservas() async {
 static Future<List<Map<String, dynamic>>> getDataReservasPorPagar() async {
         userCollection = db!.collection('reservas');
 
-  // Obtener la fecha de mañana
+ 
   DateTime fechaManana = DateTime.now();
-  
-  // Convertir la fecha de mañana al formato 'yyyy-MM-dd'
+
   String fechaMananaFormatted = "${fechaManana.year}-${fechaManana.month.toString().padLeft(2, '0')}-${fechaManana.day.toString().padLeft(2, '0')}";
 
-  // Crear el filtro de consulta
+
   final query = {
     'fechainicio': {r'$gte': fechaMananaFormatted},
     'usuario': publicusername,
     'estado': "Por Pagar",
   };
   
-  // Consultar la base de datos para obtener las reservas cuya fecha de inicio sea mañana o posterior
   final arrData = await userCollection.find(query).toList();
 
   return arrData;
@@ -110,20 +107,17 @@ static Future<List<Map<String, dynamic>>> getDataReservasPorPagar() async {
 static Future<List<Map<String, dynamic>>> getDataReservasPagadas() async {
         userCollection = db!.collection('reservas');
 
-  // Obtener la fecha de mañana
+  
   DateTime fechaManana = DateTime.now();
   
-  // Convertir la fecha de mañana al formato 'yyyy-MM-dd'
   String fechaMananaFormatted = "${fechaManana.year}-${fechaManana.month.toString().padLeft(2, '0')}-${fechaManana.day.toString().padLeft(2, '0')}";
 
-  // Crear el filtro de consulta
   final query = {
     'fechainicio': {r'$gte': fechaMananaFormatted},
     'usuario': publicusername,
     'estado': "Pagado",
   };
   
-  // Consultar la base de datos para obtener las reservas cuya fecha de inicio sea mañana o posterior
   final arrData = await userCollection.find(query).toList();
 
   return arrData;
@@ -132,13 +126,11 @@ static Future<List<Map<String, dynamic>>> getDataReservasPagadas() async {
 static Future<List<Map<String, dynamic>>> getDataHistorial() async {
   
 
-  // Crear el filtro de consulta
   final query = {
     
     'usuario': publicusername
   };
 
-  // Consultar la base de datos para obtener las reservas cuya fecha de inicio sea mañana o posterior
   final arrData = await userCollection.find(query).toList();
 
   return arrData;

@@ -144,7 +144,7 @@ int calculateDaysDifference(DateTime from, DateTime to) {
 }
 
 
-  return SingleChildScrollView( // Envuelve tu widget con SingleChildScrollView
+  return SingleChildScrollView( 
     child: Card( 
       color: Colors.blue[200],
       child: Padding(
@@ -305,7 +305,6 @@ class _CustomDateRangePickerDialogState extends State<CustomDateRangePickerDialo
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // DateRangePicker
           ListTile(
             title: const Text('Desde'),
             subtitle: _startDate != null ? Text(_formatDate(_startDate!)) : const Text('Seleccionar fecha'),
@@ -351,7 +350,6 @@ class _CustomDateRangePickerDialogState extends State<CustomDateRangePickerDialo
         ),
         ElevatedButton(
           onPressed: () {
-            // Llamar a la función onSave y pasar las fechas sin la hora
             widget.onSave(_startDate, _endDate);
             setState(() {});
             Navigator.of(context).pop();

@@ -31,7 +31,7 @@ class _ReservasPagadas extends State<ReservasPagadas> {
     ),
       ),
       bottom: const PreferredSize(
-      preferredSize: Size.fromHeight(70.0), // Altura del espacio debajo del AppBar
+      preferredSize: Size.fromHeight(70.0), 
       child: Padding(
         padding: EdgeInsets.all(10.0),
         child: Text(

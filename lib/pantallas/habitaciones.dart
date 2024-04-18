@@ -1,6 +1,7 @@
 
 // ignore_for_file: unnecessary_import, camel_case_types, avoid_unnecessary_containers
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -72,49 +73,52 @@ class _habitacionesState extends State<habitaciones> {
 
 Widget displayCard(MongoHabitaciones data,BuildContext context){
    
-  return Card( color: Colors.blue,
-    child: Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: 
-          Column( 
-            children: [
-               
-              
-              Text("Habitacion: ${data.habitacion}", style: const TextStyle(fontWeight: FontWeight.bold )),
-              const SizedBox(height: 5,),
-              Text("Capacidad :${data.capacidad}", style: const TextStyle(fontWeight: FontWeight.bold )),
-               const SizedBox(height: 5,),
-              Text("Disponible : ${data.disponible}", style: const TextStyle(fontWeight: FontWeight.bold )),
-              const SizedBox(height: 5,),
-              Text("Precio Por Persona HNL: ${data.precio_por_Persona}", style: const TextStyle(fontWeight: FontWeight.bold )),
-              const SizedBox(height: 5,),
-              Image(image: NetworkImage (data.linkimagen)) ,
-              const SizedBox(height: 5,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                   const Text("Reserva aqui:",style: TextStyle(fontWeight: FontWeight.bold),),
-              IconButton(onPressed: (){
-                Navigator.push(
-                     context,
-                    MaterialPageRoute(
-                    builder: (BuildContext context){
-                      return reservhabitaciones();
-                    },
-                    settings: RouteSettings(arguments: data)
-                    ));
-              }, icon: const Icon(Icons.calendar_month_sharp),
-                  iconSize: 50,
-                  color: Colors.yellow,                
-                  highlightColor: Colors.black,
-                  
-              ),
-                ],),
-            ],
-          ),
-         
-        
+  return ElasticInLeft(
+    to: 200,
+    child: Card( color: Colors.blue,
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: 
+            Column( 
+              children: [
+                 
+                
+                Text("Habitacion: ${data.habitacion}", style: const TextStyle(fontWeight: FontWeight.bold )),
+                const SizedBox(height: 5,),
+                Text("Capacidad :${data.capacidad}", style: const TextStyle(fontWeight: FontWeight.bold )),
+                 const SizedBox(height: 5,),
+                Text("Disponible : ${data.disponible}", style: const TextStyle(fontWeight: FontWeight.bold )),
+                const SizedBox(height: 5,),
+                Text("Precio Por Persona HNL: ${data.precio_por_Persona}", style: const TextStyle(fontWeight: FontWeight.bold )),
+                const SizedBox(height: 5,),
+                Image(image: NetworkImage (data.linkimagen)) ,
+                const SizedBox(height: 5,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                     const Text("Reserva aqui:",style: TextStyle(fontWeight: FontWeight.bold),),
+                IconButton(onPressed: (){
+                  Navigator.push(
+                       context,
+                      MaterialPageRoute(
+                      builder: (BuildContext context){
+                        return reservhabitaciones();
+                      },
+                      settings: RouteSettings(arguments: data)
+                      ));
+                }, icon: const Icon(Icons.calendar_month_sharp),
+                    iconSize: 50,
+                    color: Colors.yellow,                
+                    highlightColor: Colors.black,
+                    
+                ),
+                  ],),
+              ],
+            ),
+           
+          
+        ),
       ),
-    );
+  );
     
 }

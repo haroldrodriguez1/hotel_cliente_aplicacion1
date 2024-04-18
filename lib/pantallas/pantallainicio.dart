@@ -1,5 +1,6 @@
 // ignore_for_file: use_super_parameters, library_private_types_in_public_api, prefer_const_constructors
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_aplicacion/pantallas/displaynotificaciones.dart';
 import 'package:hotel_aplicacion/pantallas/displaytarjetas.dart';
@@ -127,10 +128,13 @@ class _PantallaInicioState extends State<PantallaInicio> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20), // Define el radio de la esquina para redondear la imagen
-                child: const Image(
-                  image: NetworkImage('https://www.emprenomic.com/wp-content/uploads/2016/05/hotel.jpg'),
+              ElasticIn(
+                duration: Duration(seconds: 2),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),  
+                  child: const Image(
+                    image: NetworkImage('https://www.emprenomic.com/wp-content/uploads/2016/05/hotel.jpg'),
+                  ),
                 ),
               ),
 
@@ -140,60 +144,73 @@ class _PantallaInicioState extends State<PantallaInicio> {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const habitaciones()),
-                      );
-                    },
-                    icon: const Icon(Icons.search, color: Colors.black),
-                    label: const Text('Buscar Habitaciones', style: TextStyle(fontSize: 14, color: Colors.black)),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                      backgroundColor: Colors.grey, // Cambia el color de fondo del botón
+                  BounceInLeft(
+                    delay: Duration(microseconds: 200000),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const habitaciones()),
+                        );
+                      },
+                      icon: const Icon(Icons.search, color: Colors.black),
+                      label: const Text('Buscar Habitaciones', style: TextStyle(fontSize: 14, color: Colors.black)),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                        backgroundColor: Colors.grey, 
+                      ),
                     ),
                   ),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const ReservasPorPagar()),
-                      );
-                    },
-                    icon: const Icon(Icons.view_agenda, color: Colors.black),
-                    label: const Text('Ver\nReservaciones\nPor Pagar', style: TextStyle(fontSize: 13.5, color: Colors.black)),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                      backgroundColor: Colors.green, // Cambia el color de fondo del botón
+                  BounceInRight(
+                    
+                    delay: Duration(microseconds: 500000),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ReservasPorPagar()),
+                        );
+                      },
+                      icon: const Icon(Icons.view_agenda, color: Colors.black),
+                      label: const Text('Ver\nReservaciones\nPor Pagar', style: TextStyle(fontSize: 13.5, color: Colors.black)),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                        backgroundColor: Colors.green, 
+                      ),
                     ),
                   ),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Reservasactivas()),
-                      );
-                    },
-                    icon: const Icon(Icons.view_agenda, color: Colors.black),
-                    label: const Text('Ver\nReservaciones\nPendientes', style: TextStyle(fontSize: 13.5, color: Colors.black)),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                      backgroundColor: Colors.red, // Cambia el color de fondo del botón
+                  BounceInLeft(
+                    delay: Duration(microseconds: 700000),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Reservasactivas()),
+                        );
+                      },
+                      icon: const Icon(Icons.view_agenda, color: Colors.black),
+                      label: const Text('Ver\nReservaciones\nPendientes', style: TextStyle(fontSize: 13.5, color: Colors.black)),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                        backgroundColor: Colors.red, 
+                      ),
                     ),
                   ),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const VerHistorial()),
-                      );
-                    },
-                    icon: const Icon(Icons.history, color: Colors.black),
-                    label: const Text('Ver\nHistorial', style: TextStyle(fontSize: 14, color: Colors.black)),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                      backgroundColor: Colors.brown, // Cambia el color de fondo del botón
+                  BounceInRight(
+                    delay: Duration(microseconds: 900000),
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const VerHistorial()),
+                        );
+                      },
+                      icon: const Icon(Icons.history, color: Colors.black),
+                      label: const Text('Ver\nHistorial', style: TextStyle(fontSize: 14, color: Colors.black)),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                        backgroundColor: Colors.brown, 
+                      ),
                     ),
                   ),
                   
@@ -291,25 +308,28 @@ class _PantallaInicioState extends State<PantallaInicio> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar( 
-        backgroundColor: Colors.blueGrey,
-        
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Habitaciones',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.report_problem),
-            label: 'Reportar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_active),
-            label: 'Notificaciones',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+      bottomNavigationBar: SlideInUp(
+        delay: Duration(seconds: 1),
+        child: BottomNavigationBar( 
+          backgroundColor: Colors.blueGrey,
+          
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Habitaciones',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.report_problem),
+              label: 'Reportar',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_active),
+              label: 'Notificaciones',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
     

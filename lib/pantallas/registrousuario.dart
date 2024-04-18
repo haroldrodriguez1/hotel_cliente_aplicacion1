@@ -28,7 +28,7 @@ class _RegistrarUsuario extends State<RegistrarUsuario> {
   var repetircontraseniacontroller = new TextEditingController();
   var respuestacontroller = new TextEditingController();
 
-  bool obscureText = true; // Para ocultar la contraseña
+  bool obscureText = true; 
 
   @override
   Widget build(BuildContext context) {

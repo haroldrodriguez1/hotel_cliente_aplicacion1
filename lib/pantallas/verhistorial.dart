@@ -31,7 +31,7 @@ class _VerHistorialState extends State<VerHistorial> {
     ),
       ),
       bottom: const PreferredSize(
-      preferredSize: Size.fromHeight(50.0), // Altura del espacio debajo del AppBar
+      preferredSize: Size.fromHeight(50.0), 
       child: Padding(
         padding: EdgeInsets.all(10.0),
         child: Text(
